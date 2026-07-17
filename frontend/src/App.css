@@ -1,0 +1,526 @@
+/* Make padding and borders count toward an element's width. */
+* {
+  box-sizing: border-box;
+}
+
+
+:root {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #eef2ff;
+  background: #060914;
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(75, 85, 190, 0.25),
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(111, 45, 166, 0.18),
+      transparent 30rem
+    ),
+    #060914;
+}
+
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+
+.app {
+  min-height: 100vh;
+}
+
+
+.hero {
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+
+  border-bottom: 1px solid rgba(163, 174, 255, 0.15);
+}
+
+
+.eyebrow,
+.section-label {
+  margin: 0 0 0.5rem;
+
+  color: #9eaafc;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18rem;
+}
+
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.25rem;
+}
+
+
+.hero-description {
+  max-width: 690px;
+  margin: 1.5rem auto 0;
+
+  color: #abb3cd;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+
+.main-content {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 5rem;
+}
+
+
+.form-section,
+.archive-section {
+  padding: 2rem;
+
+  border: 1px solid rgba(163, 174, 255, 0.16);
+  border-radius: 1.25rem;
+  background: rgba(14, 19, 38, 0.82);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+}
+
+
+.archive-section {
+  margin-top: 2rem;
+}
+
+
+.section-heading,
+.archive-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-bottom: 1.75rem;
+}
+
+
+.section-heading h2,
+.archive-heading h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+
+.space-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+
+.form-group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+
+.form-group label {
+  color: #dce1f5;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+
+  color: #f5f7ff;
+  border: 1px solid #343d62;
+  border-radius: 0.65rem;
+  outline: none;
+  background: #0b1022;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #8f9bff;
+  box-shadow: 0 0 0 3px rgba(143, 155, 255, 0.14);
+}
+
+
+.form-group textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+
+.submit-button,
+.cancel-button,
+.edit-button,
+.delete-button {
+  border: none;
+  border-radius: 0.65rem;
+  font-weight: 800;
+  transition:
+    transform 150ms ease,
+    opacity 150ms ease;
+}
+
+
+.submit-button:hover,
+.cancel-button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  transform: translateY(-1px);
+}
+
+
+.submit-button {
+  width: fit-content;
+  padding: 0.9rem 1.35rem;
+
+  color: #090d1a;
+  background: #aeb6ff;
+}
+
+
+.cancel-button {
+  padding: 0.7rem 1rem;
+
+  color: #dce1f5;
+  border: 1px solid #3b456c;
+  background: transparent;
+}
+
+
+.status-message {
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem;
+
+  border-radius: 0.65rem;
+  font-weight: 700;
+}
+
+
+.success-message {
+  color: #b9f6d5;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  background: rgba(22, 101, 52, 0.25);
+}
+
+
+.error-message {
+  color: #fecaca;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  background: rgba(127, 29, 29, 0.3);
+}
+
+
+.record-count {
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+
+  color: #bdc5e5;
+  border: 1px solid #343d62;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+
+.space-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.3rem;
+
+  border: 1px solid #2c3558;
+  border-radius: 1rem;
+  background: #0a0f20;
+}
+
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+
+.category-badge {
+  padding: 0.35rem 0.6rem;
+
+  color: #dce1ff;
+  border: 1px solid #455185;
+  border-radius: 999px;
+  background: #1a2346;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03rem;
+}
+
+
+.record-id {
+  color: #717a9a;
+  font-size: 0.72rem;
+}
+
+
+.space-card h3 {
+  margin: 1rem 0 0.7rem;
+  font-size: 1.4rem;
+}
+
+
+.description {
+  flex-grow: 1;
+  margin: 0;
+
+  color: #aab2cb;
+  line-height: 1.65;
+}
+
+
+.details-list {
+  display: grid;
+  gap: 0.75rem;
+
+  margin: 1.25rem 0;
+  padding: 1rem 0;
+
+  border-top: 1px solid #252d4d;
+  border-bottom: 1px solid #252d4d;
+}
+
+
+.details-list div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+
+.details-list dt {
+  color: #747e9d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+
+.details-list dd {
+  margin: 0;
+  color: #dce1f5;
+  font-size: 0.9rem;
+}
+
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+
+.edit-button,
+.delete-button {
+  padding: 0.7rem 1rem;
+}
+
+
+.edit-button {
+  color: #0b1022;
+  background: #9da8ff;
+}
+
+
+.delete-button {
+  color: #fecaca;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(127, 29, 29, 0.25);
+}
+
+
+.empty-message {
+  margin: 0;
+  padding: 3rem 1rem;
+
+  color: #929bb9;
+  border: 1px dashed #343d62;
+  border-radius: 0.85rem;
+  text-align: center;
+}
+
+
+/* Tablet layout */
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* Phone layout */
+@media (max-width: 650px) {
+  .hero {
+    padding-top: 3.5rem;
+  }
+
+  .hero h1 {
+    letter-spacing: -0.12rem;
+  }
+
+  .main-content {
+    width: min(100% - 1rem, 1200px);
+  }
+
+  .form-section,
+  .archive-section {
+    padding: 1.25rem;
+  }
+
+  .form-grid,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading,
+  .archive-heading {
+    flex-direction: column;
+  }
+
+  .cancel-button {
+    width: 100%;
+  }
+}
+
+/* Snackbar displayed after deleting a record. */
+.snackbar {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+  width: min(420px, calc(100% - 3rem));
+  padding: 1rem 1.1rem;
+
+  color: #eef2ff;
+  border: 1px solid #455185;
+  border-radius: 0.8rem;
+  background: #11182e;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.45);
+}
+
+
+/* Remove the default paragraph spacing inside the snackbar. */
+.snackbar p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+/* Keep the Undo and close buttons beside each other. */
+.snackbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+/* Undo button shown inside the snackbar. */
+.undo-button {
+  padding: 0.55rem 0.8rem;
+
+  color: #0b1022;
+  border: none;
+  border-radius: 0.5rem;
+  background: #aeb6ff;
+  font-weight: 800;
+}
+
+
+/* Small button used to close the snackbar. */
+.close-snackbar-button {
+  display: grid;
+  place-items: center;
+
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+
+  color: #cbd2eb;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+
+/* Add a background when the close button is hovered. */
+.close-snackbar-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Make the snackbar fit better on small screens. */
+@media (max-width: 650px) {
+  .snackbar {
+    right: 0.75rem;
+    bottom: 0.75rem;
+
+    width: calc(100% - 1.5rem);
+  }
+}
